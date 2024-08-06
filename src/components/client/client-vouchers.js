@@ -1,5 +1,4 @@
 import {
-    Avatar,
     Box,
     Button,
     Checkbox,
@@ -9,12 +8,10 @@ import {
     TableBody,
     TableCell,
     TableHead,
-    TablePagination,
     TableRow,
     Typography,
     TextField
   } from "@mui/material";
-import { ArrowRight as ArrowRightIcon } from "../../icons/arrow-right";
 import NextLink from "next/link";
 import { MobileDatePicker } from '@mui/x-date-pickers';
 import { Scrollbar } from "../scrollbar";
@@ -25,11 +22,9 @@ import { voucherApi } from "../../api/voucher-api";
 import { useMounted } from "../../hooks/use-mounted";
 import { PencilAlt as PencilAltIcon } from "../../icons/pencil-alt";
 import Modal from '@mui/material/Modal'; 
-import { width } from "@mui/system";
 
 
 export const ClientVouchersListTable = (props) => {
-const isMounted = useMounted();
   const {vouchers, vouchersCount, client, ...other} = props;
   const [selectedVouchers, setSelectedVouchers] = useState([]);
   const [openModal, setOpenModal] = useState(false); // Estado para controlar la apertura/cierre del modal
@@ -51,16 +46,8 @@ const isMounted = useMounted();
     setValidFor('')
   };
 
-  const saveVoucherSale = useCallback(async()=>{
-    try{
-      let response = await voucherApi.updateVoucherSale(voucherSale.voucher_sale_id,{valid_from:validFrom,valid_for:validFor})
-      toast.success('bono actulizado con éxito')
-      location.reload()
-    }catch(e){
-      console.log(e)
-      toast.error("Error en actualización")
-    }
-  })
+  
+
   
  useEffect(
     () => {

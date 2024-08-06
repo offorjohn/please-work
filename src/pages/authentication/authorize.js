@@ -12,7 +12,7 @@ const Authorize = () => {
   const { handleRedirectCallback } = useAuth();
 
   useEffect(() => {
-    const query = window.location.search;
+   
 
     if (query.includes('code=') && query.includes('state=')) {
       handleRedirectCallback()

@@ -71,7 +71,7 @@ export const ServiceCreateForm = (props) => {
         if(selectedRadio==2) values.price = precioSinIva.toFixed(2)
         await serviceApi.createService(values)
         toast.success(`Nuevo servicio "${values.name}" creado`);
-        location.href='/services'
+      
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido crear el servicio');

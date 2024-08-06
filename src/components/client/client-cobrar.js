@@ -1,20 +1,12 @@
-import NextLink from 'next/link';
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
-import Router from "next/router";
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
-import { useSelector, useDispatch } from 'react-redux';
 import {
-  Autocomplete,
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   Grid,
   FormControl,
-  FormHelperText,
   InputLabel,
   MenuItem,
   TextField,
@@ -30,9 +22,7 @@ import {
 
 import { MobileDatePicker } from '@mui/x-date-pickers';
 import { useEffect, useState, useCallback } from "react";
-import { clientApi } from "../../api/client-api";
 import { stripeApi } from '../../api/stripe-api';
-import { height } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add';
 import Popover from '@mui/material/Popover';
 import List from '@mui/material/List';
@@ -47,30 +37,13 @@ import { voucherApi } from '../../api/voucher-api';
 import { taxApi } from '../../api/tax-api';
 import { serviceApi } from '../../api/service-api';
 
-function stringify(data) {
-  return Object.keys(data)
-    .map(key => {
-      if (typeof data[key] === 'object') {
-        // Si el valor es un objeto, iteramos sobre sus claves y valores
-        return Object.keys(data[key])
-          .map(subKey => {
-            return encodeURIComponent(`${key}[${subKey}]`) + '=' + encodeURIComponent(data[key][subKey]);
-          })
-          .join('&');
-      } else {
-        // Si el valor no es un objeto, lo codificamos y lo concatenamos con su clave
-        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
-      }
-    })
-    .join('&');
-}
 
 // TODO: estos valores deberían estar en el store(Copiar la lógica de create form)
 
 export const ClientCobrar = (props) => {
   const isMounted = useMounted();
 
-  const { client, ...other } = props;
+  const { client } = props;
   const [show, setShow] = useState(false);
   const [showTypes, setShowTypes] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -266,7 +239,7 @@ export const ClientCobrar = (props) => {
               )
               console.log(response)
               toast.success('Suscripción creada con éxito!');
-              location.reload()
+                    
               handleHideCobrar()
               
             }else{
@@ -309,7 +282,7 @@ export const ClientCobrar = (props) => {
             if(response.status="succeded"){
               toast.success('Pago realizado con éxito!');
               handleHideCobrar()
-              location.reload()
+                    
             }else{
             toast.error('Error al procesar pago.');
             console.log(response)

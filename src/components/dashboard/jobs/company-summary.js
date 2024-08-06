@@ -28,21 +28,13 @@ export const CompanySummary = (props) => {
           />
           <PropertyListItem
             align="vertical"
-            label="Locations"
+         
             sx={{
               mt: 2,
               p: 0
             }}
           >
-            {(company.locations || []).map((location) => (
-              <Typography
-                key={location}
-                color="textSecondary"
-                variant="body2"
-              >
-                {location}
-              </Typography>
-            ))}
+           
           </PropertyListItem>
           <PropertyListItem
             align="vertical"

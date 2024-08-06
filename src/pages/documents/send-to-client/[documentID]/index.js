@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
-import NextLink from 'next/link';
 
 // Esto me deja crear Formularios con los Estilos de Material-UI para los formularios Formik
 import {
@@ -9,23 +8,17 @@ import {
   Card,
   Container,
   Divider,
-  Grid,
   InputAdornment,
-  Tab,
-  Tabs,
   TextField,
   Typography,
   CardContent
 } from '@mui/material';
-import { DateTimePicker } from '@mui/x-date-pickers';
 import { clientApi } from '../../../../api/client-api';
 
 // Esto me agrega la Disposición con el Navbar (tanto el de arriba como el de la izquierda)
 import { DashboardLayout } from '../../../../components/dashboard/dashboard-layout';
 import { ClientListTable } from '../../../../components/client/client-list-for-uploading-documents';
 import { useMounted } from '../../../../hooks/use-mounted';
-import { Download as DownloadIcon } from '../../../../icons/download';
-import { Plus as PlusIcon } from '../../../../icons/plus';
 import { Search as SearchIcon } from '../../../../icons/search';
 import { Upload as UploadIcon } from '../../../../icons/upload';
 import { gtm } from '../../../../lib/gtm';
@@ -37,22 +30,17 @@ import { subscriptionApi } from '../../../../api/subscription-api';
 import { voucherApi } from '../../../../api/voucher-api';
 import { serviceApi } from '../../../../api/service-api';
 
-import { useRouter } from 'next/router';
 // import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 // Esto importa el archivo con la API que me deja agarrar TODOS los datos del Gimnasio seleccionado
-import { gymApiAllData } from '../../../../api/gym-api-all-data';
 
 import axios from 'axios';
 
 // Esto importa los Formularios de Formik
-import { useFormik } from 'formik';
 
 // Esto me mostrará mensajes de error si el usuario no llena los campos del formulario
-import * as Yup from 'yup';
 
 // Esto me dejará ver la lista de Clientes junto con el filtro que me deja buscarlos rápidamente
-import { CustomerListTable } from '../../../../components/dashboard/customer/customer-list-table';
 
 // Esto me dejará imprimir mensajes flash de confirmación y de error como se hacen en el resto de la web app de React
 import toast from 'react-hot-toast';
@@ -69,12 +57,6 @@ import toast from 'react-hot-toast';
 * en Django.
 * */
 
-const tabs = [
-  {
-    label: 'All',
-    value: 'all'
-  },
-];
 
 const sortOptions = [
   {
@@ -114,24 +96,6 @@ const genreOptions = [
   }
 ];
 
-const estadoOptions = [
-  {
-    label: 'Todos',
-    value: 'Todos'
-  },
-  {
-    label: 'Activos',
-    value: '1'
-  },
-  {
-    label: 'De Baja',
-    value: '0'
-  },
-  {
-    label: 'De Excedencia',
-    value: '2'
-  }
-];
 
 const applyFilters = (customers, filters) => customers.filter((customer) => {
   if (filters.query) {
@@ -252,9 +216,6 @@ const Index = () => {
 
   const [fileInputs, setFileInputs] = useState([0]);
 
-  const addFileInput = () => {
-    setFileInputs([...fileInputs, fileInputs.length]);
-  };
 
   useEffect(() => {
     gtm.push({ event: 'page_view' });
@@ -335,20 +296,8 @@ const Index = () => {
     getPostalCodesOptions();
   }, [getClients, getProducts, getSubscriptions, getVouchers, getServices, getPostalCodesOptions]);
 
-  const handleFilterChange = (event) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [event.target.name]: event.target.value,
-    }));
-  };
 
-  const handleSortChange = (event, newValue) => {
-    setSort(newValue);
-  };
 
-  const handleTabChange = (event, newValue) => {
-    setCurrentTab(newValue);
-  };
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);

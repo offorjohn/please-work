@@ -71,7 +71,7 @@ export const SupplierEditForm = (props) => {
       try {
         await supplierApi.updateSupplier(supplier.id,values)
         toast.success(`Proveedor "${values.name}" modificado`);
-        location.href='/suppliers'
+       
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido modificar el proveedor');

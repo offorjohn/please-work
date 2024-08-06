@@ -44,7 +44,7 @@ export const SupplierCreateForm = (props) => {
       try {
         await supplierApi.createSupplier(values)
         toast.success(`Nuevo proveedor "${values.name}" creado`);
-        location.href='/suppliers'
+      
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido crear el proveedor');

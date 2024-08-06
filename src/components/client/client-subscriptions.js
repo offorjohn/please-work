@@ -69,7 +69,7 @@ const isMounted = useMounted();
         let response2 = await subscriptionApi.deleteSubscriptionCustomer(subscription); // solo cambiar is_active
         if(response.status="succeded" && response2){
             toast.success('Borrado con éxito')
-            location.reload()
+          
         }else{
             toast.error('Error al procesar borrado.');
             console.log(response2)

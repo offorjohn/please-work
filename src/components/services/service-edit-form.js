@@ -78,7 +78,7 @@ export const ServiceEditForm = (props) => {
         if(selectedRadio==2) values.price = precioSinIva.toFixed(2)
         await serviceApi.updateService(service.id,values)
         toast.success(`Servicio "${values.name}" modificado`);
-        location.href='/services'
+       
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido modificar el servicio');

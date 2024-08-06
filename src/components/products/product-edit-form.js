@@ -173,7 +173,7 @@ export const ProductEditForm = (props) => {
         if(selectedRadio==2) values.price = precioSinIva.toFixed(2)
         await productApi.updateProduct(product.id,values)
         toast.success(`Producto "${values.name}" modificado`);
-        location.href='/products'
+     
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido modificar el producto');

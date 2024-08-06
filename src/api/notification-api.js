@@ -210,7 +210,7 @@ Our mission emphasizes seeking and hiring diverse voices, including those who ar
           title: 'Senior Golang Backend Engineer'
         }
       ],
-      locations: ['New York City', 'Milano', 'Moscow'],
+   
       logo: '/static/mock-images/jobs/company-logo_1.svg',
       members: [
         {

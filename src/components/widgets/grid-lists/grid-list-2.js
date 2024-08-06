@@ -32,7 +32,7 @@ const projects = [
     currency: '$',
     isLiked: true,
     likes: 7,
-    location: 'Europe',
+   
     image: '/static/mock-images/projects/project_1.png',
     rating: 5,
     membersCount: 2,
@@ -52,7 +52,7 @@ const projects = [
     currency: '$',
     isLiked: true,
     likes: 12,
-    location: 'Europe',
+ 
     image: '/static/mock-images/projects/project_2.png',
     rating: 4.5,
     membersCount: 3,
@@ -72,7 +72,7 @@ const projects = [
     currency: '$',
     isLiked: true,
     likes: 18,
-    location: 'Europe',
+   
     image: '/static/mock-images/projects/project_3.png',
     rating: 4.7,
     membersCount: 8,
@@ -185,7 +185,7 @@ export const GridList2 = () => (
                 </Grid>
                 <Grid item>
                   <Typography variant="subtitle2">
-                    {project.location}
+                    {project.caption}
                   </Typography>
                   <Typography
                     color="textSecondary"

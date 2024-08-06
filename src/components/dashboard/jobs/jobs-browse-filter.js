@@ -33,28 +33,7 @@ const levelOptions = [
   }
 ];
 
-const locationOptions = [
-  {
-    label: 'Africa',
-    value: 'africa'
-  },
-  {
-    label: 'Asia',
-    value: 'asia'
-  },
-  {
-    label: 'Europe',
-    value: 'europe'
-  },
-  {
-    label: 'North America',
-    value: 'northAmerica'
-  },
-  {
-    label: 'South America',
-    value: 'southAmerica'
-  }
-];
+
 
 const roleOptions = [
   {
@@ -92,8 +71,7 @@ export const JobsBrowseFilter = (props) => {
       displayValue: 'Novice'
     },
     {
-      label: 'Location',
-      field: 'location',
+  
       value: 'asia',
       displayValue: 'Asia'
     },
@@ -114,9 +92,6 @@ export const JobsBrowseFilter = (props) => {
     .filter((filterItems) => filterItems.field === 'level')
     .map((filterItems) => filterItems.value), [filterItems]);
 
-  const locationValues = useMemo(() => filterItems
-    .filter((filterItems) => filterItems.field === 'location')
-    .map((filterItems) => filterItems.value), [filterItems]);
 
   const roleValues = useMemo(() => filterItems
     .filter((filterItems) => filterItems.field === 'role')
@@ -200,11 +175,7 @@ export const JobsBrowseFilter = (props) => {
           options={levelOptions}
           value={levelValues}
         />
-        <MultiSelect
-          label="Location"
-          options={locationOptions}
-          value={locationValues}
-        />
+      
         <MultiSelect
           label="Role"
           options={roleOptions}

@@ -78,7 +78,7 @@ export const VoucherEditForm = (props) => {
         if(selectedRadio==2) values.price = precioSinIva.toFixed(2)
         await voucherApi.updateVoucher(voucher.id,values)
         toast.success(`Bono "${values.name}" modificado`);
-        location.href='/vouchers'
+   
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido modificar el bono');

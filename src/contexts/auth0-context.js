@@ -65,10 +65,10 @@ export const AuthProvider = (props) => {
     const initialize = async () => {
       try {
         auth0Client = new Auth0Client({
-          redirect_uri: window.location.origin + '/authentication/authorize',
+        
           domain: auth0Config.domain,
           client_id: auth0Config.client_id,
-          cacheLocation: 'localstorage'
+         
         });
 
         await auth0Client.checkSession();

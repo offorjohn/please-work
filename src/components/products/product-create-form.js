@@ -83,7 +83,7 @@ export const ProductCreateForm = (props) => {
         if(selectedRadio==2) values.price = precioSinIva.toFixed(2)
         await productApi.createProduct(values)
         toast.success(`Nuevo producto "${values.name}" creado`);
-        location.href='/products'
+    
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido crear el producto');

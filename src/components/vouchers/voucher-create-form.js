@@ -71,7 +71,7 @@ export const VoucherCreateForm = (props) => {
         if(selectedRadio==2) values.price = precioSinIva.toFixed(2)
         await voucherApi.createVoucher(values)
         toast.success(`Nuevo bono "${values.name}" creado`);
-        location.href='/vouchers'
+     
       } catch (err) {
         console.error(err);
         toast.error('No se ha podido crear el bono');
